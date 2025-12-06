@@ -7,6 +7,7 @@ It's school project, simple clone of _monkeytype_ 🙉
 ## Functionality
 
 - Limited set of texts 🗒️ (small, medium, large)
+- Stats: accuracy, characters per minute
 
 ## Stack
 
