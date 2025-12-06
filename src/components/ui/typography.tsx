@@ -1,8 +1,8 @@
 import type { VariantProps } from 'class-variance-authority'
-import type { ComponentProps, ElementType } from 'react'
+import type { ComponentProps } from 'react'
 import { cva } from 'class-variance-authority'
 
-export const typographyVariants = cva('text-gray-800', {
+const typographyVariants = cva('text-gray-800', {
   variants: {
     variant: {
       heading: 'font-bold text-3xl md:text-4xl lg:text-5xl mb-4',
@@ -19,11 +19,15 @@ export const typographyVariants = cva('text-gray-800', {
 export type TypographyTag = 'h1' | 'h2' | 'div'
 export type TypographyProps<T extends TypographyTag> = {
   tag?: T
-} & ComponentProps<T>
-& VariantProps<typeof typographyVariants>
+} & ComponentProps<T> & VariantProps<typeof typographyVariants>
 
 export function Typography<T extends TypographyTag>({ variant, className, tag, ...props }: TypographyProps<T>) {
-  const Component = (tag as ElementType) || 'div'
+  const Component = tag || 'div'
 
-  return <Component className={typographyVariants({ variant, className })} {...props} />
+  return (
+    <Component
+      className={typographyVariants({ variant, className })}
+      {...props}
+    />
+  )
 }

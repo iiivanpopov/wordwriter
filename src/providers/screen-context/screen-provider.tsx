@@ -10,13 +10,10 @@ interface ScreenProviderProps {
 export function ScreenProvider({ children }: ScreenProviderProps) {
   const [screen, setScreen] = useState<Screen>('start')
 
-  const contextValue = useMemo(
-    () => ({
-      screen,
-      setScreen,
-    }),
-    [screen],
-  )
+  const contextValue = useMemo(() => ({
+    screen,
+    setScreen,
+  }), [screen])
 
   return <ScreenContext value={contextValue}>{children}</ScreenContext>
 }

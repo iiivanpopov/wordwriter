@@ -19,9 +19,15 @@ export function useTimer(defaultStarted = false) {
     setStarted(true)
   }
 
+  const stop = () => {
+    setStarted(false)
+    clearInterval(intervalRef.current)
+  }
+
   return {
     seconds,
     started,
     start,
+    stop,
   }
 }
