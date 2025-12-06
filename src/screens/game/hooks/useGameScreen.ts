@@ -1,5 +1,5 @@
 import type { KeyboardEvent } from 'react'
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { TEXTS } from '@/data/texts'
 import { useTimer } from '@/hooks/useTimer'
 import { useGame } from '@/providers/game-context'
@@ -15,10 +15,15 @@ interface Char {
 
 export function useGameScreen() {
   const [input, setInput] = useState('')
+  const containerRef = useRef<HTMLDivElement>(null)
 
   const game = useGame()
   const timer = useTimer()
   const screen = useScreen()
+
+  useEffect(() => {
+    containerRef.current?.focus()
+  }, [])
 
   const text = useMemo(() => TEXTS[game.textSize], [game.textSize])
 
@@ -100,6 +105,9 @@ export function useGameScreen() {
     },
     hooks: {
       timer,
+    },
+    refs: {
+      containerRef,
     },
   }
 }
