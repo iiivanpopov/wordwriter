@@ -1,7 +1,7 @@
 import type { KeyboardEvent } from 'react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { TEXTS } from '@/data/texts'
-import { useTimer } from '@/hooks/useTimer'
+import { useTimer } from '@/hooks/use-timer'
 import { useGame } from '@/providers/game-context'
 import { useScreen } from '@/providers/screen-context'
 import { calculateStats, getCharStatus } from '../lib/utils'

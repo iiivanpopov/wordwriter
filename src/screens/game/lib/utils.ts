@@ -1,4 +1,4 @@
-import type { CharStatus } from '../hooks/useGameScreen'
+import type { CharStatus } from '../hooks/use-game-screen'
 
 export function getCharStatus(char: string, inputChar: string | undefined): CharStatus {
   if (inputChar === undefined)

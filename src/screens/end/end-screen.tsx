@@ -1,7 +1,7 @@
 import { Button } from '@/components/button'
 import { Typography } from '@/components/typography'
 import { formatSecondsToMMSS } from '@/lib/utils'
-import { useEndScreen } from './hooks/useEndScreen'
+import { useEndScreen } from './hooks/use-end-screen'
 
 export function EndScreen() {
   const { state, actions } = useEndScreen()

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/refs */
 import { Typography } from '@/components/typography'
 import { cn, formatSecondsToMMSS } from '@/lib/utils'
-import { useGameScreen } from './hooks/useGameScreen'
+import { useGameScreen } from './hooks/use-game-screen'
 
 export function GameScreen() {
   const { state, actions, hooks, refs } = useGameScreen()

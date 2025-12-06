@@ -1,7 +1,7 @@
 import { Button } from '@/components/button'
 import { Typography } from '@/components/typography'
 import { cn } from '@/lib/utils'
-import { useStartScreen } from './hooks/useStartScreen'
+import { useStartScreen } from './hooks/use-start-screen'
 
 export function StartScreen() {
   const { actions, state } = useStartScreen()
