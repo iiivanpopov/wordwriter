@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button'
-import { Typography } from '@/components/ui/typography'
+import { Button } from '@/components/button'
+import { Typography } from '@/components/typography'
 import { cn } from '@/lib/utils'
 import { useStartScreen } from './hooks/useStartScreen'
 
@@ -43,7 +43,7 @@ export function StartScreen() {
           large
         </button>
       </div>
-      <Button onClick={actions.onStart}>Get Started</Button>
+      <Button onClick={actions.onStart}>Start writing</Button>
     </div>
   )
 }

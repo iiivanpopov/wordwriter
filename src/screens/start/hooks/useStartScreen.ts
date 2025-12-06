@@ -15,12 +15,7 @@ export function useStartScreen() {
   }
 
   return {
-    actions: {
-      onStart,
-      onTextSizeSelect,
-    },
-    state: {
-      game,
-    },
+    state: { game },
+    actions: { onStart, onTextSizeSelect },
   }
 }

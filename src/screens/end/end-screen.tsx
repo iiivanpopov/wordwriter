@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button'
-import { Typography } from '@/components/ui/typography'
+import { Button } from '@/components/button'
+import { Typography } from '@/components/typography'
 import { formatSecondsToMMSS } from '@/lib/utils'
 import { useEndScreen } from './hooks/useEndScreen'
 
@@ -10,20 +10,23 @@ export function EndScreen() {
     <div className="flex w-80 flex-col items-center gap-4">
       <Typography variant="subheading">{formatSecondsToMMSS(state.game.result!.timeSeconds)}</Typography>
       <div>
-        <Typography className="flex gap-[1ch]">
-          ACCURACY:
-          <span className="font-bold text-green-600">
+        <Typography>
+          <b>
             {state.game.result!.accuracy}
             %
-          </span>
+          </b>
+          {' '}
+          accuracy
         </Typography>
-        <Typography className="flex gap-[1ch]">
-          CHAR/M:
-          <span className="font-bold">{state.game.result!.charsPerMinute}</span>
+        <Typography>
+          <b>{state.game.result!.charsPerMinute}</b>
+          {' '}
+          char/m
         </Typography>
-        <Typography className="flex gap-[1ch]">
-          TOTAL:
-          <span className="font-bold">{state.game.result!.totalChars}</span>
+        <Typography>
+          <b>{state.game.result!.totalChars}</b>
+          {' '}
+          total
         </Typography>
       </div>
       <Button onClick={actions.handleRestart}>Try Again</Button>

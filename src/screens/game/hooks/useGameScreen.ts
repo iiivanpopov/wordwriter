@@ -4,9 +4,10 @@ import { TEXTS } from '@/data/texts'
 import { useTimer } from '@/hooks/useTimer'
 import { useGame } from '@/providers/game-context'
 import { useScreen } from '@/providers/screen-context'
+import { calculateStats, getCharStatus } from '../lib/utils'
 
-type CharStatus = 'correct' | 'incorrect' | 'pending'
-interface Char {
+export type CharStatus = 'correct' | 'incorrect' | 'pending'
+export interface Char {
   id: string
   char: string
   status: CharStatus
@@ -27,87 +28,62 @@ export function useGameScreen() {
 
   const text = useMemo(() => TEXTS[game.textSize], [game.textSize])
 
-  const chars = useMemo<Char[]>(() =>
-    text.split('').map((char, index) => {
-      let status: CharStatus = 'pending'
+  const chars = useMemo<Char[]>(() => {
+    return text.split('').map((char, index) => ({
+      id: `char-${index}`,
+      char,
+      status: getCharStatus(char, input[index]),
+      isCurrent: index === input.length,
+    }))
+  }, [text, input])
 
-      if (index < input.length)
-        status = input[index] === char ? 'correct' : 'incorrect'
+  const correctChars = useMemo(() => {
+    return chars.filter(c => c.status === 'correct').length
+  }, [chars])
 
-      return {
-        id: `char-${index}`,
-        char,
-        status,
-        isCurrent: index === input.length,
-      }
-    }), [text, input])
-
-  const stats = useMemo(() => {
-    const totalTyped = input.length
-    const correctChars = chars.filter(c => c.status === 'correct').length
-    const accuracy = totalTyped > 0 ? Math.round((correctChars / totalTyped) * 100) : 100
-    const timeMinutes = timer.seconds / 60
-    const charsPerMinute = timeMinutes > 0 ? Math.round(correctChars / timeMinutes) : 0
-
-    return {
-      totalTyped,
-      accuracy,
-      charsPerMinute,
-    }
-  }, [input.length, chars, timer.seconds])
+  const isLastChar = input.length + 1 === text.length
+  const canType = input.length < text.length
 
   const onKeyDown = useCallback((event: KeyboardEvent<HTMLDivElement>) => {
     event.preventDefault()
 
-    const key = event.key
+    const { key } = event
 
-    if (key === 'Backspace' && timer.started) {
-      setInput(prev => prev.slice(0, -1))
+    if (key === 'Backspace')
+      return setInput(prev => prev.slice(0, -1))
+
+    if (key.length !== 1 || !canType)
+      return
+
+    if (!timer.started)
+      timer.start()
+
+    setInput(prev => prev + key)
+
+    if (isLastChar) {
+      timer.stop()
+
+      const isLastCorrect = key === text[input.length]
+      const finalStats = calculateStats(
+        correctChars + Number(isLastCorrect),
+        input.length + 1,
+        timer.seconds,
+      )
+
+      game.setResult({
+        charsPerMinute: finalStats.charsPerMinute,
+        accuracy: finalStats.accuracy,
+        totalChars: text.length,
+        timeSeconds: timer.seconds,
+      })
+      screen.setScreen('end')
     }
-    else if (key.length === 1) {
-      if (!timer.started)
-        timer.start()
-
-      const nextIndex = input.length
-      if (nextIndex < text.length) {
-        const isCorrect = key === text[nextIndex]
-        setInput(prev => prev + key)
-
-        if (nextIndex + 1 === text.length) {
-          timer.stop()
-
-          const timeMinutes = timer.seconds / 60 || 1 / 60
-          const correctChars = chars.filter(c => c.status === 'correct').length + (isCorrect ? 1 : 0)
-          const totalTyped = input.length + 1
-
-          game.setResult({
-            charsPerMinute: Math.round(correctChars / timeMinutes),
-            accuracy: Math.round((correctChars / totalTyped) * 100),
-            totalChars: text.length,
-            timeSeconds: timer.seconds,
-          })
-          screen.setScreen('end')
-        }
-      }
-    }
-  }, [timer, input, text, chars, game, screen])
+  }, [canType, timer, isLastChar, text, input.length, game, screen, correctChars])
 
   return {
-    state: {
-      game,
-      input,
-      text,
-      chars,
-      stats,
-    },
-    actions: {
-      onKeyDown,
-    },
-    hooks: {
-      timer,
-    },
-    refs: {
-      containerRef,
-    },
+    state: { game, input, text, chars },
+    actions: { onKeyDown },
+    hooks: { timer },
+    refs: { containerRef },
   }
 }

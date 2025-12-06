@@ -6,8 +6,6 @@ const buttonVariants = cva('inline-flex items-center justify-center rounded-md t
   variants: {
     variant: {
       primary: 'bg-blue-600/85 text-white hover:bg-blue-600 focus:ring-blue-500',
-      secondary: 'bg-gray-300 text-gray-900 hover:bg-gray-300 focus:ring-gray-400',
-      ghost: 'bg-transparent text-gray-900',
     },
   },
   defaultVariants: {

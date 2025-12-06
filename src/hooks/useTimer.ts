@@ -24,10 +24,5 @@ export function useTimer(defaultStarted = false) {
     clearInterval(intervalRef.current)
   }
 
-  return {
-    seconds,
-    started,
-    start,
-    stop,
-  }
+  return { seconds, started, start, stop }
 }

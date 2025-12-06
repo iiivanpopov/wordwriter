@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/refs */
-import { Typography } from '@/components/ui/typography'
+import { Typography } from '@/components/typography'
 import { cn, formatSecondsToMMSS } from '@/lib/utils'
 import { useGameScreen } from './hooks/useGameScreen'
 
