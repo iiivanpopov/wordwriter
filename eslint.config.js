@@ -6,4 +6,5 @@ export default antfu({
   formatters: true,
   imports: true,
   stylistic: true,
+  ignores: ['./presentation/slides.md'],
 })
