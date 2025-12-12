@@ -3,7 +3,7 @@ title: WORDWRITER
 layout: intro-image
 theme: apple-basic
 transition: slide-left
-image: https://unsplash.com/photos/_nWaeTF6qo0/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzY1NTU1NTE4fA&force=true
+image: /background.jpg
 ---
 
 <div class="absolute top-10">
@@ -16,6 +16,8 @@ image: https://unsplash.com/photos/_nWaeTF6qo0/download?ixid=M3wxMjA3fDB8MXxhbGx
   <h1>WORDWRITER</h1>
   <p>Тест на швидкість вашого друку</p>
 </div>
+
+<PageNumber />
 
 ---
 layout: section
@@ -55,6 +57,8 @@ layout: statement
 ---
 
 # Перейдемо до проєкту
+
+<PageNumber />
 
 ---
 layout: section
@@ -106,6 +110,8 @@ layout: section
 
 # ФУНКЦІОНАЛ
 
+<PageNumber />
+
 ---
 
 # ФУНКЦІОНАЛ
@@ -129,6 +135,8 @@ const TEXTS = {
 }
 ```
 
+<PageNumber />
+
 ---
 
 # ФУНКЦІОНАЛ
@@ -141,6 +149,8 @@ const TEXTS = {
 <arrow v-click="[2, 3]" x1="400" y1="150" x2="300" y2="250" color="#5500dd" width="3" arrowSize="1" />
 <arrow v-click="[3]" x1="400" y1="150" x2="425" y2="250" color="#5500dd" width="3" arrowSize="1" />
 
+<PageNumber />
+
 ---
 
 # ФУНКЦІОНАЛ
@@ -149,11 +159,15 @@ const TEXTS = {
 
 ![](/wordwriter-statistics.png)
 
+<PageNumber />
+
 ---
 layout: section
 ---
 
 # САЙТ
+
+<PageNumber />
 
 ---
 layout: statement
@@ -161,15 +175,17 @@ layout: statement
 
 https://iiivanpopov.github.io/wordwriter/
 
+<PageNumber />
+
 ---
 layout: intro-image
 class: text-center
-image: https://unsplash.com/photos/_nWaeTF6qo0/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzY1NTU1NTE4fA&force=true
+image: /background.jpg
 ---
 
 # Дякую за увагу!
 
 ---
 layout: image
-image: https://unsplash.com/photos/_nWaeTF6qo0/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzY1NTU1NTE4fA&force=true
+image: /background.jpg
 ---
