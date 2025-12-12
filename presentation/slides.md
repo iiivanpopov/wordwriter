@@ -47,11 +47,11 @@ layout: section
 
 <div class="grid grid-cols-2 gap-4 h-full">
   <div class="flex items-center justify-center">
-    <img src="/assets/monkeytype-logo2.png" class="max-h-100" />
+    <img src="./assets/monkeytype-logo2.png" class="max-h-100" />
   </div>
   <div class="flex flex-col gap-4">
-    <img src="/assets/monkeytype-preview1.jpg" class="max-h-48" />
-    <img src="/assets/monkeytype-preview2.png" class="max-h-48" />
+    <img src="./assets/monkeytype-preview1.jpg" class="max-h-48" />
+    <img src="./assets/monkeytype-preview2.png" class="max-h-48" />
   </div>
 </div>
 
