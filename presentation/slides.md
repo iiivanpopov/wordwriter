@@ -29,7 +29,7 @@ layout: section
 
 # НАТХНЕННЯ
 
-![](./assets/monkeytype-logo.png)
+![](/monkeytype-logo.png)
 
 <PageNumber />
 
@@ -44,16 +44,11 @@ layout: section
 <PageNumber />
 
 ---
-
-<div class="grid grid-cols-2 gap-4 h-full">
-  <div class="flex items-center justify-center">
-    <img src="./assets/monkeytype-logo2.png" class="max-h-100" />
-  </div>
-  <div class="flex flex-col gap-4">
-    <img src="./assets/monkeytype-preview1.jpg" class="max-h-48" />
-    <img src="./assets/monkeytype-preview2.png" class="max-h-48" />
-  </div>
-</div>
+layout: 3-images
+imageLeft: /monkeytype-logo2.png
+imageTopRight: /monkeytype-preview1.jpg
+imageBottomRight: /monkeytype-preview2.png
+---
 
 ---
 layout: statement
@@ -89,19 +84,19 @@ layout: statement
 
 ---
 
-<img src="./assets/wordwriter-preview1.png" />
+<img src="/wordwriter-preview1.png" />
 
 <PageNumber />
 
 ---
 
-<img src="./assets/wordwriter-preview2.png" />
+<img src="/wordwriter-preview2.png" />
 
 <PageNumber />
 
 ---
 
-<img src="./assets/wordwriter-preview3.png" />
+<img src="/wordwriter-preview3.png" />
 
 <PageNumber />
 
@@ -140,7 +135,7 @@ const TEXTS = {
 
 ## Підсвічування неправильних букв
 
-![](./assets/wordwriter-incorrect.png)
+![](/wordwriter-incorrect.png)
 
 <arrow v-click="[1, 2, 3]" x1="400" y1="150" x2="200" y2="250" color="#5500dd" width="3" arrowSize="1" />
 <arrow v-click="[2, 3]" x1="400" y1="150" x2="300" y2="250" color="#5500dd" width="3" arrowSize="1" />
@@ -152,7 +147,7 @@ const TEXTS = {
 
 ## Статистика
 
-![](./assets/wordwriter-statistics.png)
+![](/wordwriter-statistics.png)
 
 ---
 layout: section
