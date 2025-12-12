@@ -3,7 +3,6 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "workspaces": ["presentation"],
   "scripts": {
     "dev": "NODE_ENV=development bun --bun vite",
     "prod": "NODE_ENV=production bun --bun vite preview",
@@ -17,7 +16,7 @@
     "lucide-react": "^0.555.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "tw-merge": "^0.0.1-alpha.3"
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.4.2",
