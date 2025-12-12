@@ -100,7 +100,6 @@ layout: statement
 
 <PageNumber />
 
-
 ---
 layout: section
 ---

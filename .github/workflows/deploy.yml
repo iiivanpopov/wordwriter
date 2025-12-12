@@ -30,8 +30,14 @@ jobs:
           bun-version: latest
       - name: Install dependencies
         run: bun install --frozen-lockfile
-      - name: Build
+      - name: Install presentation dependencies
+        run: cd presentation && bun install --frozen-lockfile
+      - name: Build main site
         run: bun build:prod
+      - name: Build presentation
+        run: cd presentation && bun run build --base /wordwriter/presentation/
+      - name: Copy presentation to dist
+        run: cp -r presentation/dist ./dist/presentation
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
